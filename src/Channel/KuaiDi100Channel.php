@@ -77,7 +77,7 @@ class KuaiDi100Channel extends Channel
                 'logistics_company' => '',
             ];
         } else {
-            if (0 === $jsonToArray['state']) {
+            if (isset($jsonToArray['state'])) {
                 $this->response = [
                     'status' => 1,
                     'message' => 'ok',
@@ -89,7 +89,7 @@ class KuaiDi100Channel extends Channel
                 $this->response = [
                     'status' => 0,
                     'message' => $jsonToArray['message'],
-                    'error_code' => $jsonToArray['state'],
+                    'error_code' => $jsonToArray['returnCode'],
                     'data' => [],
                     'logistics_company' => '',
                 ];
